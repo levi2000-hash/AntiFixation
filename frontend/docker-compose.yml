@@ -1,0 +1,11 @@
+version: "3"
+services:
+    antifixation-server:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        ports:
+            - "8080:80" #Levi or Alan, change this to xx:80 if port 8080 is occupied on your PC
+        networks:
+            - default
+        restart: always 
