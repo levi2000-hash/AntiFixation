@@ -1,40 +1,24 @@
 const express = require('express');
 const { json } = require('express/lib/response');
-const app = express()
 const cors = require('cors')
+const sockets = require("./sockets")()
+const app = express()
+
 
 app.use(express.json())
 app.use(cors())
 
-let patient_data = [
-	{
-		'name': 'levi',
-		'age': 21,
-		'state': 0.5
-	},
-	{
-		'name': 'bob',
-		'age': 35,
-		'state': 0,
-	},
-	{
-		'name': 'elsa',
-		'age': 27,
-		'state': 1,
-	},
-]
-
+let patient_data = require("./db").patients
 
 app.get('/patients', (req, res) => {
 
-	//Get all data 	
-	console.log("here is all the data")
+	//Get all data
 	res.json(patient_data)
 })
 
 app.post('/patients', (req, res) => {
 
-	//Create patient 
+	//Create patient
 	let name = req.body.name
 	let age = req.body.age
 	let fall_status = req.body.fall_status
@@ -77,7 +61,10 @@ app.get('/patient/:id', (req, res) => {
 	console.log("patient data")
 	res.send(patient_data[req.params.id - 1])
 })
-app.listen(3001, () => {
-	console.log('listening on port 3001')
-}
+
+app.listen(3000, () => {
+	console.log('listening on port 3000')
+	}
 )
+
+

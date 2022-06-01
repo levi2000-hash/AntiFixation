@@ -2,7 +2,7 @@
   "name": "webapp",
   "version": "1.0.0",
   "description": "The webapp for the anti fixation system",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node api.js"
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "socket.io": "^4.5.1"
   }
 }
